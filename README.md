@@ -399,7 +399,11 @@ Runnable GitHub Actions examples are provided for:
 
 The examples and customization guidance are documented in [`docs/examples.md`](docs/examples.md). Replace the wrapped test command with your coding agent command or project-specific CI command, and keep the `--` separator between Proctor options and agent arguments.
 
-A developer-facing presentation script is available in [`docs/presentation-script.md`](docs/presentation-script.md).
+A developer-facing presentation script is available in [`docs/presentation-script.md`](docs/presentation-script.md). An investor and project-manager briefing is available in [`docs/investor-presentation-script.md`](docs/investor-presentation-script.md).
+
+## Automated releases
+
+Tag-driven release automation is defined in [`.github/workflows/release.yml`](.github/workflows/release.yml). It validates the version tag, tests and builds the npm package, publishes npm through Trusted Publishing, optionally publishes a real Python distribution to PyPI when a root-level `pyproject.toml` exists, and creates a GitHub Release. See [`docs/release.md`](docs/release.md) for the exact npm/PyPI trust configuration and release checklist.
 
 ## Ignore rules and privacy
 
