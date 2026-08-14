@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Evidence first, automation second</title>
+  <style>
+    body { margin: 0; background: #F4F4F6; }
+    * { box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>10 / Limitations & Roadmap</span>
+        <span>Future Direction</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      
+      <div style="padding-top:36px;">
+        <h1 style="font-size:58px; line-height:1; letter-spacing:-2px; margin:0; font-weight:800;">Evidence first, automation second</h1>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; padding-top:48px;">
+        <div>
+          <div style="font-size:28px; font-weight:800; letter-spacing:-1px; border-top:2px solid #0A0A0A; padding-top:16px;">Anti-goals & Limitations</div>
+          <ul style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.5; color:#3A4032; margin-top:20px; padding-left:24px;">
+            <li style="margin-top:12px;">Not a correctness oracle, code reviewer, telemetry platform, or model judge.</li>
+            <li style="margin-top:12px;">The current release does not fully observe every child process or provide native adapters for every agent.</li>
+            <li style="margin-top:12px;">The score summarizes claim/evidence integrity, not code quality or test coverage.</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:28px; font-weight:800; letter-spacing:-1px; border-top:2px solid #0A0A0A; padding-top:16px;">Roadmap</div>
+          <ul style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.5; color:#3A4032; margin-top:20px; padding-left:24px;">
+            <li style="margin-top:12px;">Language packs and richer AST evidence.</li>
+            <li style="margin-top:12px;">Native agent adapters for tighter integration.</li>
+            <li style="margin-top:12px;">Sigstore integration for verifiable receipts.</li>
+            <li style="margin-top:12px;">Homebrew distribution for easier installation.</li>
+            <li style="margin-top:12px;"><code style="font-family:monospace; font-size:18px; background:rgba(0,0,0,0.1); padding:2px 4px;">proctor watch</code> daemon to interrupt runs on high-confidence findings.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div style="flex:1; background:#FFC857; margin-top:12px; padding-top:12px; padding-left:72px; padding-right:72px; display:flex; flex-direction:column;">
+      <div style="font-size:32px; font-weight:800; letter-spacing:-1px; color:#0A0A0A;">The core philosophy</div>
+      <div style="height:4px; background:#0A0A0A; width:120px; margin-top:16px;"></div>
+      <div style="font-family:Georgia,'Times New Roman',serif; font-size:22px; line-height:1.4; margin-top:16px; color:#3A4032; max-width:900px;">
+        Proctor relies on deterministic, local execution evidence. Every finding must cite evidence, and Proctor remains silent when evidence is absent.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

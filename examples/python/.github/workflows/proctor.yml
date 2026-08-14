@@ -1,0 +1,45 @@
+name: Python Proctor gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  proctor-python:
+    name: Audit Python agent/test execution
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/python
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: examples/python/requirements.txt
+
+      - name: Install test dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run pytest under Proctor
+        run: |
+          npx --yes @genramzi/proctor run \
+            --claims-file ./agent-report.md \
+            -- pytest -q
+
+      - name: Verify the Work Receipt
+        uses: GenRamzi/Proctor@main
+        with:
+          receipt: .proctor/latest.receipt.json
+          strict: "false"
+          comment: "true"

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>From local run to pull-request gate</title>
+  <style>body{margin:0;background:#F4F4F6;}*{box-sizing:border-box}</style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; box-sizing:border-box; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>08 / CI Integration</span>
+        <span>GitHub Action</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      
+      <div style="padding-top:36px; margin-bottom:36px;">
+        <h1 style="font-size:54px; line-height:1; letter-spacing:-2px; margin:0; font-weight:800;">From local run to pull-request gate</h1>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:48px;">
+        <div style="background:#0A0A0A; color:#F4F4F6; padding:24px; font-family:monospace; font-size:16px; line-height:1.5; min-height:280px;">
+          <div style="color:#FFC857;">permissions:</div>
+          <div>&nbsp;&nbsp;contents: read</div>
+          <div>&nbsp;&nbsp;pull-requests: write</div>
+          <br/>
+          <div style="color:#FFC857;">- name: Verify the Work Receipt</div>
+          <div>&nbsp;&nbsp;uses: GenRamzi/Proctor@main</div>
+          <div>&nbsp;&nbsp;with:</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;receipt: .proctor/latest.receipt.json</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;strict: "false"</div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;comment: "true"</div>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; gap:20px; padding-top:12px;">
+          <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+            <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">1. Locates the receipt</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032; margin-top:6px;">Finds the configured path or the newest timestamped receipt in <code style="font-family:monospace; font-size:15px; background:#E5E5E7; padding:2px 4px;">.proctor/</code>.</div>
+          </div>
+          <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+            <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">2. Runs gate & generates badge</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032; margin-top:6px;">Executes the policy gate and creates an SVG Integrity badge.</div>
+          </div>
+          <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+            <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">3. Uploads evidence bundle</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032; margin-top:6px;">Attaches the receipt and badge as a workflow artifact.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="flex:1; background:#FFC857; margin-top:42px; padding-top:28px; padding-left:72px; padding-right:72px; display:flex; flex-direction:column;">
+      <div style="font-size:28px; font-weight:800; letter-spacing:-1px; color:#0A0A0A;">Pull Request Integration</div>
+      <div style="height:4px; background:#0A0A0A; width:100%; margin-top:16px; margin-bottom:16px;"></div>
+      <div style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.4; color:#3A4032; max-width:900px;">
+        The Action can comment directly on pull requests. If comment permissions are restricted (e.g., on fork PRs), it gracefully falls back to the artifact upload without hiding the underlying gate exit code.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

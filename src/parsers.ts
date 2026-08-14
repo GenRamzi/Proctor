@@ -24,6 +24,13 @@ export function parsePytest(text: string, source = "pytest-output"): TestResult 
   return result("pytest", source, number(passed), number(failed), number(skipped), number(errors), filter);
 }
 
+export function parseNodeTest(text: string, source = "node-test-output"): TestResult | undefined {
+  const normalized = text.replace(/\u001b\[[0-?]*[ -\/]*[@-~]/g, "").replace(/\r/g, "");
+  if (!/(?:^|\n)\s*ℹ\s+tests\s+\d+/i.test(normalized) || !/(?:^|\n)\s*ℹ\s+pass\s+\d+/i.test(normalized)) return undefined;
+  const read = (label: string) => number(normalized.match(new RegExp(`(?:^|\\n)\\s*ℹ\\s+${label}\\s+(\\d+)`, "im"))?.[1]);
+  return result("node", source, read("pass"), read("fail"), read("skipped"), read("cancelled"));
+}
+
 export function parseJestVitest(text: string, source = "jest-vitest-output"): TestResult | undefined {
   if (!/(?:Tests:|\bJest\b|\bVitest\b)/i.test(text)) return undefined;
   const summary = text.match(/Tests:\s*(?:(\d+)\s+failed,\s*)?(?:(\d+)\s+passed,\s*)?(?:(\d+)\s+skipped,\s*)?(\d+)\s+total/i)
@@ -61,6 +68,6 @@ export function parseTap(text: string, source = "tap-output"): TestResult | unde
 }
 
 export function parseTestOutput(text: string, source = "transcript"): TestResult[] {
-  const parsed = [parsePytest(text, source), parseJestVitest(text, source), parseGoTest(text, source), parseJUnitXml(text, source), parseTap(text, source)].filter((item): item is TestResult => Boolean(item));
+  const parsed = [parsePytest(text, source), parseNodeTest(text, source), parseJestVitest(text, source), parseGoTest(text, source), parseJUnitXml(text, source), parseTap(text, source)].filter((item): item is TestResult => Boolean(item));
   return parsed.length ? parsed : [];
 }

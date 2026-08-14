@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "title": "Proctor in GitHub Actions",
+    "created": 1786673468.641,
+    "last_updated": 1786673767.378,
+    "total_slides": 9
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "why_gate",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "two_stages",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "yaml",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "permissions",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "capture_claims",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "inputs",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "outputs",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "sponsor",
+      "state": "edited",
+      "pageNum": 9
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "Proctor in GitHub Actions",
+      "summary": "Evidence-backed agent gates for pull requests. Developer setup guide for v0.1.0."
+    },
+    {
+      "id": "why_gate",
+      "title": "Why add an integrity gate to CI?",
+      "summary": "Explain why agent reports and final CI status can miss the path taken, and how Proctor adds a Work Receipt."
+    },
+    {
+      "id": "two_stages",
+      "title": "The workflow has two clear stages",
+      "summary": "Show Capture and Decide as the two stages connected by the Work Receipt."
+    },
+    {
+      "id": "yaml",
+      "title": "A ready-to-copy workflow",
+      "summary": "Present the complete GitHub Actions YAML configuration with checkout, Node, Proctor run, and Action verification."
+    },
+    {
+      "id": "permissions",
+      "title": "Permissions are a security decision",
+      "summary": "Explain contents read, pull-requests write, least privilege, fork PR caution, and secret handling."
+    },
+    {
+      "id": "capture_claims",
+      "title": "Capture the agent’s claims explicitly",
+      "summary": "Explain the Proctor run command, claims-file, PTY capture, and -- separator."
+    },
+    {
+      "id": "inputs",
+      "title": "Tune the gate with three Action inputs",
+      "summary": "Explain receipt, strict, and comment inputs plus badge and artifact behavior."
+    },
+    {
+      "id": "outputs",
+      "title": "What developers get after the run",
+      "summary": "Summarize gate decision, review report, evidence bundle, PR context, and score interpretation."
+    },
+    {
+      "id": "sponsor",
+      "title": "Sponsor the project and help it grow",
+      "summary": "Explain the .github/FUNDING.yml configuration, Sponsor button, and how funding supports the roadmap."
+    }
+  ]
+}

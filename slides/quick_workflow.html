@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>The 30-second developer workflow</title>
+  <style>
+    body { margin: 0; background: #F4F4F6; }
+    * { box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>04 / Workflow</span>
+        <span>Proctor CLI</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      <div style="display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; padding-top:36px;">
+        <div>
+          <h1 style="font-size:58px; line-height:0.98; letter-spacing:-2px; margin:0; font-weight:800;">The 30-second<br/>developer workflow</h1>
+          <p style="font-family:Georgia,'Times New Roman',serif; font-size:22px; line-height:1.35; color:#3A4032; margin-top:24px;">Three commands to capture, verify, and gate agent execution locally.</p>
+        </div>
+        <div style="background:#0A0A0A; color:#F4F4F6; padding:32px; font-family:monospace; font-size:18px; line-height:1.6;">
+          <div style="color:#FFC857; margin-bottom:8px;"># 1. Run the agent under Proctor</div>
+          <div>$ npx --yes @genramzi/proctor run -- claude</div>
+          <div style="color:#FFC857; margin-top:20px; margin-bottom:8px;"># 2. Verify the evidence</div>
+          <div>$ npx --yes @genramzi/proctor verify</div>
+          <div style="color:#FFC857; margin-top:20px; margin-bottom:8px;"># 3. Gate the pull request</div>
+          <div>$ npx --yes @genramzi/proctor gate</div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1; background:#FFC857; margin-top:42px; padding:36px 72px 0 72px; display:grid; grid-template-columns:1fr 1fr; gap:28px 64px;">
+      <div>
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">Seamless wrapping</div>
+        <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.35; color:#3A4032; margin-top:8px;">The wrapped agent’s output streams to the terminal without interruption.</div>
+      </div>
+      <div>
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">Portable artifacts</div>
+        <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.35; color:#3A4032; margin-top:8px;">A complete evidence receipt is written to <code style="font-family:monospace; font-size:16px; background:rgba(0,0,0,0.1); padding:2px 4px;">.proctor/&lt;run-id&gt;.receipt.json</code>.</div>
+      </div>
+      <div>
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">Shift-left review</div>
+        <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.35; color:#3A4032; margin-top:8px;">Failed claims or high-signal green-wash findings become visible before merge.</div>
+      </div>
+      <div>
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px;">Flexible inputs</div>
+        <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.35; color:#3A4032; margin-top:8px;">Use <code style="font-family:monospace; font-size:16px; background:rgba(0,0,0,0.1); padding:2px 4px;">--claims-file</code> when the agent’s final report is separate from the transcript.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Permissions are a security decision</title>
+  <style>
+    body { margin: 0; background: #F4F4F6; }
+    * { box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px; flex:1; display:flex; flex-direction:column;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>04 / Security</span>
+        <span>Permissions</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      
+      <div style="padding-top:30px;">
+        <h1 style="font-size:58px; line-height:1; letter-spacing:-2px; margin:0; font-weight:800;">Permissions are a security decision</h1>
+      </div>
+
+      <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; padding-top:40px;">
+        <div style="display:flex; flex-direction:column;">
+          <div style="background:#0A0A0A; color:#F4F4F6; padding:24px; font-family:monospace; font-size:20px; line-height:1.5;">
+            <div style="color:#FFC857;">permissions:</div>
+            <div>&nbsp;&nbsp;contents: read</div>
+            <div>&nbsp;&nbsp;pull-requests: write</div>
+          </div>
+          <div style="margin-top:24px; display:flex; flex-direction:column; gap:16px;">
+            <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+              <div style="font-family:monospace; font-size:16px; font-weight:bold;">contents: read</div>
+              <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032; margin-top:4px;">Allows checkout and read-only repository access.</div>
+            </div>
+            <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+              <div style="font-family:monospace; font-size:16px; font-weight:bold;">pull-requests: write</div>
+              <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032; margin-top:4px;">Allows Proctor to post a summary comment.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; gap:24px;">
+          <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+            <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Least privilege</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.4; color:#3A4032; margin-top:8px;">Use the minimum permissions required. Remove <code style="font-family:monospace; font-size:18px; background:#E5E5E7; padding:2px 4px;">pull-requests: write</code> if PR comments are not needed.</div>
+          </div>
+          <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+            <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Fork PR caution</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.4; color:#3A4032; margin-top:8px;">Treat fork pull requests as untrusted execution contexts. Repository security restrictions may prevent write access.</div>
+          </div>
+          <div style="border-top:2px solid #0A0A0A; padding-top:12px;">
+            <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Secret handling</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.4; color:#3A4032; margin-top:8px;">Never expose signing keys, npm publish tokens, or cloud credentials to the agent process.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-top:auto; background:#FFC857; min-height:120px; padding-top:32px; padding-left:72px; padding-right:72px;">
+      <div style="font-size:28px; font-weight:800; letter-spacing:-1px; color:#0A0A0A;">A missing comment permission should not erase the gate result.</div>
+      <div style="font-family:Georgia,'Times New Roman',serif; font-size:20px; color:#3A4032; margin-top:8px;">Keep the artifact upload and gate exit code as the source of truth.</div>
+    </div>
+  </div>
+</body>
+</html>

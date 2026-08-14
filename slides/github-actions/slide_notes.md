@@ -1,0 +1,35 @@
+# 1 - Proctor in GitHub Actions
+
+Welcome everyone to this briefing on bringing Proctor into your GitHub Actions workflows. We are going to look at how you can make every green checkmark show its work when using coding agents. Let us dive right into the core problem Proctor solves for teams.
+
+# 2 - Why add an integrity gate to CI?
+
+Coding agents report confident outcomes, but that report is often the only artifact a reviewer ever sees. A passing status hides filtered commands, skipped tests, and weakened assertions that standard diffs or CI runs miss. Building on that challenge, let us look at how Proctor structures the workflow into two clear operational stages.
+
+# 3 - The workflow has two clear stages
+
+The entire process is split into capture and decide stages connected by a single portable work receipt. First, you run the agent under Proctor to record the transcript, snapshots, and file mutations. Then, CI takes that receipt to verify evidence, execute the gate, and handle reporting. Moving from that architecture, let us examine the actual YAML configuration you need.
+
+# 4 - A ready-to-copy workflow
+
+Here is a complete, ready-to-copy workflow that drops straight into your repository. It checks out the code, executes your agent command while capturing a claims file, and runs the official Proctor GitHub Action. Notice how it looks for the latest receipt generated during the runner session. Next, let us discuss why configuring the correct workflow permissions matters for security.
+
+# 5 - Permissions are a security decision
+
+Configuring your workflow permissions is a deliberate security decision with distinct trade-offs. Giving contents read access handles the checkout, while adding pull-requests write access lets Proctor post summary comments on the PR. Remember to follow the principle of least privilege and treat fork pull requests as untrusted. Keeping your gate exit code as the primary source of truth ensures your builds stay protected.
+
+# 6 - Capture the agent’s claims explicitly
+
+We need to capture what the agent actually claimed before we can check if it was earned. You can use the claims-file option when your agent writes its final report outside the main terminal transcript. Notice the double-dash separator in the command snippet. That keeps Proctor's configuration options cleanly separated from your agent arguments. This wrapping process records everything through a PTY, building the execution ledger we need for our policy check. Let us look at how you configure the CI gate using these captured inputs.
+
+# 7 - Tune the gate with three Action inputs
+
+You can tune your workflow behavior directly inside the Action configuration using three main inputs. The receipt input defaults to the newest file, while strict mode ensures unproven claims will fail your gate. We also support automatic pull request commentary when permissions allow. But remember, a missing comment permission will never block your core gate result or artifact upload. These controls make sure your CI pipeline remains both strict and resilient. Let us review the exact artifacts generated for developers after every run.
+
+# 8 - What developers get after the run
+
+Every completed run produces a concrete set of artifacts you can trust in your daily workflow. You get a clear gate decision for merge policy enforcement alongside a detailed review report. The output also includes a portable JSON receipt and a standalone integrity badge. Keep in mind that the resulting score strictly summarizes claim and evidence integrity. It is never a measure of code quality, correctness, or test coverage. Let us talk about how you can support ongoing development and help the project grow.
+
+# 9 - Sponsor the project and help it grow
+
+We rely on direct community support to build out the rest of the roadmap. GitHub Sponsors is fully enabled through the repository funding configuration. Your contributions go straight toward building new language packs, native agent adapters, and richer AST evidence. We are also planning Sigstore integration, Homebrew distribution, and a proctor watch daemon. You can check out the repository today and select sponsor to help make every green checkmark show its work.

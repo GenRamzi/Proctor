@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Green-wash detectors create a shared vocabulary</title>
+  <style>
+    body { margin: 0; background: #F4F4F6; }
+    * { box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px; flex:1; display:flex; flex-direction:column;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>07 / Detectors</span>
+        <span>Green-wash taxonomy</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      
+      <div style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; padding-top:36px;">
+        <div>
+          <h1 style="font-size:54px; line-height:1.05; letter-spacing:-2px; margin:0; font-weight:800;">Green-wash detectors create a shared vocabulary</h1>
+          <div style="height:6px; background:#FFC857; width:120px; margin-top:24px;"></div>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:grid; grid-template-columns:90px 190px 1fr; gap:16px; align-items:start; border-top:2px solid #0A0A0A; padding-top:10px;">
+            <div style="font-family:monospace; font-size:18px; font-weight:bold; color:#0A0A0A;">GW-001</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.5px;">SCOPE-NARROWED</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032;">Full-suite claim + captured filter</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 190px 1fr; gap:16px; align-items:start; border-top:2px solid #0A0A0A; padding-top:10px;">
+            <div style="font-family:monospace; font-size:18px; font-weight:bold; color:#0A0A0A;">GW-003</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.5px;">TEST-DELETED</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032;">Before/after file hashes</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 190px 1fr; gap:16px; align-items:start; border-top:2px solid #0A0A0A; padding-top:10px;">
+            <div style="font-family:monospace; font-size:18px; font-weight:bold; color:#0A0A0A;">GW-004</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.5px;">ASSERT-WEAKENED</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032;">Test diff or changed test content</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 190px 1fr; gap:16px; align-items:start; border-top:2px solid #0A0A0A; padding-top:10px;">
+            <div style="font-family:monospace; font-size:18px; font-weight:bold; color:#0A0A0A;">GW-007</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.5px;">STUB-RETURN</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032;">Implementation diff + constant return</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 190px 1fr; gap:16px; align-items:start; border-top:2px solid #0A0A0A; padding-top:10px;">
+            <div style="font-family:monospace; font-size:18px; font-weight:bold; color:#0A0A0A;">GW-012</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.5px;">HOOK-BYPASSED</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032;">Git operation or transcript</div>
+          </div>
+          <div style="display:grid; grid-template-columns:90px 190px 1fr; gap:16px; align-items:start; border-top:2px solid #0A0A0A; padding-top:10px;">
+            <div style="font-family:monospace; font-size:18px; font-weight:bold; color:#0A0A0A;">GW-014</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.5px;">NEVER-RAN</div>
+            <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; color:#3A4032;">Claim without executed verification</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background:#FFC857; min-height:160px; padding-top:32px; padding-left:72px; padding-right:72px; display:flex; flex-direction:column; margin-top:32px;">
+      <div style="font-size:24px; font-weight:800; letter-spacing:-0.5px; color:#0A0A0A;">Conservative Evidence Policy</div>
+      <div style="font-family:Georgia,'Times New Roman',serif; font-size:20px; line-height:1.4; color:#3A4032; margin-top:12px; max-width:1000px;">
+        v0.1 ships deterministic implementations for GW-001 through GW-008, GW-012, and GW-014. <strong style="color:#0A0A0A;">Every finding must cite evidence; missing evidence is not an accusation.</strong>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

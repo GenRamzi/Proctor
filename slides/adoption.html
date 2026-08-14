@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>Adopt Proctor without changing your agent</title>
+  <style>body{margin:0;background:#F4F4F6;}*{box-sizing:border-box}</style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; box-sizing:border-box; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>06 / Adoption</span>
+        <span>Low-friction path</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      <div style="padding-top:36px;">
+        <h1 style="font-size:54px; line-height:1.05; letter-spacing:-2px; margin:0; font-weight:800;">Adopt Proctor without changing your agent</h1>
+        <div style="height:6px; background:#FFC857; width:120px; margin-top:24px;"></div>
+      </div>
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px 64px; padding-top:48px;">
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:24px; font-weight:800; letter-spacing:-0.5px;">1. Start with one command</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.4; color:#3A4032; margin-top:12px;">Wrap your existing workflow seamlessly: <code style="font-family:monospace; font-size:16px; background:#E5E5E7; padding:2px 4px;">proctor run -- &lt;agent-command&gt;</code></div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:24px; font-weight:800; letter-spacing:-0.5px;">2. Add privacy controls</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.4; color:#3A4032; margin-top:12px;">Use <code style="font-family:monospace; font-size:16px; background:#E5E5E7; padding:2px 4px;">.proctorignore</code> to exclude <code style="font-family:monospace; font-size:16px; background:#E5E5E7; padding:2px 4px;">.env*</code>, secrets, keys, and generated artifacts from snapshots.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:24px; font-weight:800; letter-spacing:-0.5px;">3. Use flexible inputs</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.4; color:#3A4032; margin-top:12px;">Pass <code style="font-family:monospace; font-size:16px; background:#E5E5E7; padding:2px 4px;">--claims-file</code> for structured agent handoff reports when claims aren't in the transcript.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:24px; font-weight:800; letter-spacing:-0.5px;">4. Strict-mode progression</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:18px; line-height:1.4; color:#3A4032; margin-top:12px;">Begin with advisory <code style="font-family:monospace; font-size:16px; background:#E5E5E7; padding:2px 4px;">verify</code>. Move to <code style="font-family:monospace; font-size:16px; background:#E5E5E7; padding:2px 4px;">gate --strict</code> after reviewing initial findings.</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-top:auto; background:#FFC857; min-height:160px; padding-top:32px; padding-left:72px; padding-right:72px; display:flex; flex-direction:column;">
+      <div style="font-size:26px; font-weight:800; letter-spacing:-1px; color:#0A0A0A;">Development extensibility</div>
+      <div style="height:4px; background:#0A0A0A; width:100%; margin-top:16px;"></div>
+      <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; line-height:1.4; margin-top:12px; color:#3A4032; max-width:900px;">
+        Extend safely with deterministic parsers, rules, fixtures, and tests. Distributed as <code style="font-family:monospace; font-size:17px; background:rgba(0,0,0,0.1); padding:2px 4px;">@genramzi/proctor@0.1.0</code> (Requires Node.js 20+).
+      </div>
+    </div>
+  </div>
+</body>
+</html>

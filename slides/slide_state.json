@@ -1,0 +1,132 @@
+{
+  "project_info": {
+    "title": "Proctor",
+    "created": 1786672909.962,
+    "last_updated": 1786673230.588,
+    "total_slides": 12
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "missing_question",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "evidence",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "pipeline",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "quick_workflow",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "cli",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "receipt",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "detectors",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "github_action",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "adoption",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "limits",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "closing",
+      "state": "edited",
+      "pageNum": 12
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "Proctor",
+      "summary": "Your agent said the tests pass. Proctor checks. Developer guide and product overview for v0.1.0."
+    },
+    {
+      "id": "missing_question",
+      "title": "The missing question in agent-assisted development",
+      "summary": "Explain how agent reports, diff review, and CI can miss filtered tests, weakened assertions, deleted tests, or bypassed hooks."
+    },
+    {
+      "id": "evidence",
+      "title": "Proctor turns agent claims into reviewable evidence",
+      "summary": "Introduce the wrapper, deterministic ledger, claim adjudication, and portable Work Receipt."
+    },
+    {
+      "id": "pipeline",
+      "title": "One local-first pipeline, four useful outputs",
+      "summary": "Show the run, analyze, receipt, and decide pipeline and its local-first privacy model."
+    },
+    {
+      "id": "quick_workflow",
+      "title": "The 30-second developer workflow",
+      "summary": "Demonstrate the three-command workflow and the resulting receipt and gate behavior."
+    },
+    {
+      "id": "cli",
+      "title": "The CLI is designed for agent handoffs",
+      "summary": "Summarize run, verify, gate, inspect, and badge with their developer outcomes and package naming note."
+    },
+    {
+      "id": "receipt",
+      "title": "A Work Receipt is the durable handoff artifact",
+      "summary": "Explain the ledger, claims, findings, integrity, and optional signature sections of a receipt."
+    },
+    {
+      "id": "detectors",
+      "title": "Green-wash detectors create a shared vocabulary",
+      "summary": "Show representative GW detectors, evidence anchors, maturity, and conservative evidence policy."
+    },
+    {
+      "id": "github_action",
+      "title": "From local run to pull-request gate",
+      "summary": "Show the GitHub Action configuration and what it does with receipts, gates, badges, and comments."
+    },
+    {
+      "id": "adoption",
+      "title": "Adopt Proctor without changing your agent",
+      "summary": "Give a low-friction adoption path, privacy controls, strict-mode progression, and development extensibility."
+    },
+    {
+      "id": "limits",
+      "title": "Evidence first, automation second",
+      "summary": "State anti-goals, current limitations, and roadmap items for developers."
+    },
+    {
+      "id": "closing",
+      "title": "Start auditing the next agent run",
+      "summary": "Close with installation, execution, verification, and links to GitHub, npm, taxonomy, and README."
+    }
+  ]
+}

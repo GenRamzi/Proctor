@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>A Work Receipt is the durable handoff artifact</title>
+  <style>body{margin:0;background:#F4F4F6;}*{box-sizing:border-box}</style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; box-sizing:border-box; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif; display:flex; flex-direction:column;">
+    <div style="padding-top:46px; padding-left:72px; padding-right:72px;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>06 / Artifacts</span>
+        <span>Work Receipt</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      <div style="padding-top:36px;">
+        <h1 style="font-size:54px; line-height:1.05; letter-spacing:-2px; margin:0; font-weight:800;">A Work Receipt is the durable handoff artifact</h1>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px 64px; padding-top:48px;">
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Ledger</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; line-height:1.4; color:#3A4032; margin-top:12px;">Command metadata, transcript hash, snapshots, file mutations, test results, Git operations, and hash chain.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Claims</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; line-height:1.4; color:#3A4032; margin-top:12px;">Atomic text, verdict, reason, and evidence references extracted from the agent's report.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Findings</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; line-height:1.4; color:#3A4032; margin-top:12px;">Stable <code style="font-family:monospace; font-size:17px; background:#E5E5E7; padding:2px 4px;">GW-</code> identifier, severity, location, message, and evidence for green-washing patterns.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:26px; font-weight:800; letter-spacing:-0.5px;">Integrity</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; line-height:1.4; color:#3A4032; margin-top:12px;">Score, label, transparent deductions, status, and optional Ed25519 signature.</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:auto; background:#FFC857; min-height:160px; padding-top:42px; padding-left:72px; padding-right:72px; display:flex; flex-direction:column;">
+      <div style="font-size:32px; font-weight:800; letter-spacing:-1px; color:#0A0A0A;">The receipt is JSON, portable, inspectable, and suitable for CI artifacts.</div>
+      <div style="font-family:monospace; font-size:15px; color:#3A4032; margin-top:16px;">.proctor/&lt;run-id&gt;.receipt.json</div>
+    </div>
+  </div>
+</body>
+</html>

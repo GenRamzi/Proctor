@@ -1,0 +1,42 @@
+name: Node.js Proctor gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  proctor-nodejs:
+    name: Audit Node.js agent/test execution
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/nodejs
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: examples/nodejs/package.json
+
+      - name: Run Node.js tests under Proctor
+        run: |
+          npx --yes @genramzi/proctor run \
+            --claims-file ./agent-report.md \
+            -- node --test
+
+      - name: Verify the Work Receipt
+        uses: GenRamzi/Proctor@main
+        with:
+          receipt: .proctor/latest.receipt.json
+          strict: "false"
+          comment: "true"

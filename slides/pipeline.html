@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1280, initial-scale=1.0" />
+  <title>One local-first pipeline, four useful outputs</title>
+  <style>body{margin:0;background:#F4F4F6;}*{box-sizing:border-box}</style>
+</head>
+<body>
+  <div class="slide-container" style="width:1280px; min-height:720px; box-sizing:border-box; background:#F4F4F6; color:#0A0A0A; font-family:Arial,Helvetica,sans-serif;">
+    <div style="box-sizing:border-box; padding-top:46px; padding-left:72px; padding-right:72px; display:flex; flex-direction:column; min-height:720px;">
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:13px; letter-spacing:1.3px; text-transform:uppercase; color:#3A4032;">
+        <span>03 / Architecture</span>
+        <span>Data flow & Privacy</span>
+      </div>
+      <div style="height:6px; background:#0A0A0A; margin-top:18px;"></div>
+      
+      <div style="padding-top:36px;">
+        <h1 style="font-size:54px; line-height:1; letter-spacing:-2px; margin:0; font-weight:800; max-width:800px;">One local-first pipeline,<br/><span style="color:#3A4032;">four useful outputs</span></h1>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:32px; padding-top:48px; flex:1;">
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:32px; font-weight:800; color:#FFC857; margin-bottom:12px;">01</div>
+          <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;">Run</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032;">Execute the agent through a PTY wrapper and snapshot the workspace before and after.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:32px; font-weight:800; color:#FFC857; margin-bottom:12px;">02</div>
+          <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;">Analyze</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032;">Parse supported test output and apply deterministic green-wash rules to the ledger.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:32px; font-weight:800; color:#FFC857; margin-bottom:12px;">03</div>
+          <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;">Receipt</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032;">Store evidence, claims, findings, integrity score, and hash-chain metadata in JSON.</div>
+        </div>
+        <div style="border-top:2px solid #0A0A0A; padding-top:16px;">
+          <div style="font-size:32px; font-weight:800; color:#FFC857; margin-bottom:12px;">04</div>
+          <div style="font-size:22px; font-weight:800; letter-spacing:-0.5px; margin-bottom:12px;">Decide</div>
+          <div style="font-family:Georgia,'Times New Roman',serif; font-size:17px; line-height:1.4; color:#3A4032;">Use <code style="font-family:monospace; font-size:15px; background:#E5E5E7; padding:2px 4px;">verify</code>, <code style="font-family:monospace; font-size:15px; background:#E5E5E7; padding:2px 4px;">gate</code>, <code style="font-family:monospace; font-size:15px; background:#E5E5E7; padding:2px 4px;">inspect</code>, or <code style="font-family:monospace; font-size:15px; background:#E5E5E7; padding:2px 4px;">badge</code> for the next workflow step.</div>
+        </div>
+      </div>
+
+      <div style="background:#FFC857; margin-top:40px; padding-top:24px; padding-left:32px; padding-right:32px; min-height:120px; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-size:26px; font-weight:800; letter-spacing:-1px; color:#0A0A0A;">Local-first privacy model</div>
+        <div style="font-family:Georgia,'Times New Roman',serif; font-size:19px; line-height:1.4; margin-top:8px; color:#3A4032; max-width:900px;">
+          Source code and transcripts are not sent to a hosted model by default. Proctor relies on deterministic, local execution evidence.
+        </div>
+      </div>
+      
+      <div style="border-top:2px solid #0A0A0A; padding-top:10px; margin-top:24px; font-family:monospace; font-size:13px; color:#3A4032;">
+        Proctor v0.1.0 Architecture
+      </div>
+    </div>
+  </div>
+</body>
+</html>

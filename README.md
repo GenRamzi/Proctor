@@ -4,6 +4,8 @@
   <strong>Your agent said the tests pass. Proctor checks.</strong>
 </p>
 
+[![Proctor example workflow](https://github.com/GenRamzi/Proctor/actions/workflows/proctor-example.yml/badge.svg)](https://github.com/GenRamzi/Proctor/actions/workflows/proctor-example.yml)
+
 <p align="center">
   <a href="https://github.com/GenRamzi/Proctor/actions">CI</a> ·
   <a href="https://www.npmjs.com/package/@genramzi/proctor">npm</a> ·
@@ -305,6 +307,7 @@ The current v0.1 engine implements `GW-001` through `GW-008`, `GW-012`, and `GW-
 The parser layer recognizes:
 
 - pytest summaries, including basic `-k` filters;
+- Node.js built-in test runner summaries (`node --test`);
 - Jest and Vitest summaries;
 - Go test output;
 - JUnit XML test suites; and
@@ -372,6 +375,31 @@ The score is labeled as follows:
 | 0–39 | `FAILED` | The evidence or policy gate should fail |
 
 The score is not a code-quality score, test-coverage score, or correctness prediction. It summarizes the integrity of the captured claims and evidence.
+
+## Status badge and dashboard
+
+Proctor can display integrity status at three levels: a small SVG badge, a pull-request comment, and a browser-based dashboard.
+
+Generate a badge from any receipt:
+
+```console
+npx --yes @genramzi/proctor badge .proctor/<run-id>.receipt.json --output integrity.svg
+```
+
+The dependency-free dashboard is available at [`dashboard/index.html`](dashboard/index.html). Open it locally and load a `.receipt.json` file; the receipt stays in the browser and is not uploaded. The dashboard includes a clearly labeled demo receipt for presentations and smoke checks.
+
+See [`docs/status-dashboard.md`](docs/status-dashboard.md) for README badge patterns, artifact upload, and an optional GitHub Pages deployment workflow. The repository also includes [`.github/workflows/proctor-dashboard.yml`](.github/workflows/proctor-dashboard.yml). A detailed configuration guide is available in [`docs/github-actions-guide.md`](docs/github-actions-guide.md).
+
+## Project examples
+
+Runnable GitHub Actions examples are provided for:
+
+- [Node.js](examples/nodejs/.github/workflows/proctor.yml), using `node --test` and an explicit `agent-report.md`.
+- [Python](examples/python/.github/workflows/proctor.yml), using `pytest -q` and an explicit `agent-report.md`.
+
+The examples and customization guidance are documented in [`docs/examples.md`](docs/examples.md). Replace the wrapped test command with your coding agent command or project-specific CI command, and keep the `--` separator between Proctor options and agent arguments.
+
+A developer-facing presentation script is available in [`docs/presentation-script.md`](docs/presentation-script.md).
 
 ## Ignore rules and privacy
 

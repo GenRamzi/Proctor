@@ -36,7 +36,7 @@ export interface FileMutation {
 }
 
 export interface TestResult {
-  framework: "pytest" | "jest" | "vitest" | "go" | "junit" | "tap" | "unknown";
+  framework: "pytest" | "node" | "jest" | "vitest" | "go" | "junit" | "tap" | "unknown";
   source: string;
   passed: number;
   failed: number;
