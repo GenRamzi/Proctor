@@ -1,0 +1,13 @@
+# Local secrets and credentials
+.env*
+secrets/**
+*.pem
+*.key
+
+# Generated or high-volume artifacts
+coverage/**
+.nyc_output/**
+reports/**
+
+# Local Proctor state
+.proctor/**

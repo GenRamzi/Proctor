@@ -1,0 +1,52 @@
+{
+  "name": "proctor",
+  "version": "0.1.0",
+  "description": "Audit what coding agents said against what they actually did.",
+  "type": "module",
+  "bin": {
+    "proctor": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/cli.js",
+    "test": "node --test --import tsx test/**/*.test.ts",
+    "test:watch": "node --test --watch --import tsx test/**/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src test",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ai-agents",
+    "developer-tools",
+    "green-washing",
+    "testing",
+    "github-actions",
+    "cli"
+  ],
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.26.9",
+    "@babel/traverse": "^7.27.1",
+    "@types/node": "^22.13.10",
+    "@types/picomatch": "^4.0.3",
+    "execa": "^9.5.2",
+    "fast-glob": "^3.3.2",
+    "node-pty": "^1.1.0",
+    "picomatch": "^4.0.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.22.0",
+    "typescript-eslint": "^8.67.0"
+  }
+}

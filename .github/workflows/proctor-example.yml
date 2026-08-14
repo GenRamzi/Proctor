@@ -1,0 +1,30 @@
+name: Proctor integrity gate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  proctor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Replace this with the agent invocation that creates the receipt.
+      # The command should write a receipt under .proctor/ before the gate runs.
+      - name: Run the agent under Proctor
+        run: |
+          npm ci
+          npm test
+          mkdir -p .proctor
+          # Example only: use `npx proctor run -- <your-agent-command>` in production.
+
+      - name: Verify the Work Receipt
+        uses: GenRamzi/Proctor@main
+        with:
+          receipt: .proctor/latest.receipt.json
+          strict: "false"
+          comment: "true"

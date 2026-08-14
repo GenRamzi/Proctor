@@ -1,0 +1,95 @@
+name: Proctor integrity gate
+description: Verify a Proctor Work Receipt and publish an evidence-backed integrity report.
+author: Manus AI
+branding:
+  icon: shield
+  color: purple
+inputs:
+  receipt:
+    description: Path to a Proctor receipt relative to the repository root.
+    required: false
+    default: .proctor/latest.receipt.json
+  strict:
+    description: Fail on unproven claims as well as contradicted claims.
+    required: false
+    default: "false"
+  comment:
+    description: Add the report to the pull request when running in a pull_request event.
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - name: Install Proctor
+      shell: bash
+      run: npm ci --prefix "$GITHUB_ACTION_PATH" --no-audit --no-fund
+    - name: Build Proctor
+      shell: bash
+      run: npm run --prefix "$GITHUB_ACTION_PATH" build
+    - name: Verify Work Receipt
+      id: gate
+      shell: bash
+      env:
+        PROCTOR_RECEIPT: ${{ inputs.receipt }}
+        PROCTOR_STRICT: ${{ inputs.strict }}
+      run: |
+        set +e
+        receipt="$PROCTOR_RECEIPT"
+        if [ ! -f "$receipt" ]; then
+          receipt=$(find .proctor -maxdepth 1 -name '*.receipt.json' -type f | sort | tail -1)
+        fi
+        if [ -z "$receipt" ] || [ ! -f "$receipt" ]; then
+          echo 'No Proctor receipt was found.' > proctor-report.txt
+          echo 'exit_code=1' >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
+        echo "receipt=$receipt" >> "$GITHUB_OUTPUT"
+        args=("$GITHUB_ACTION_PATH/dist/cli.js" gate "$receipt" --json)
+        if [ "$PROCTOR_STRICT" = "true" ]; then args+=(--strict); fi
+        node "${args[@]}" > proctor-report.json
+        status=$?
+        if [ "$PROCTOR_STRICT" = "true" ]; then
+          node "$GITHUB_ACTION_PATH/dist/cli.js" gate "$receipt" --strict | tee proctor-report.txt
+        else
+          node "$GITHUB_ACTION_PATH/dist/cli.js" gate "$receipt" | tee proctor-report.txt
+        fi
+        echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+        exit 0
+    - name: Generate Integrity badge
+      if: always() && steps.gate.outputs.receipt != ''
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/dist/cli.js" badge "${{ steps.gate.outputs.receipt }}" --output integrity.svg
+    - name: Upload Work Receipt
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: proctor-work-receipt
+        path: |
+          ${{ inputs.receipt }}
+          .proctor/*.receipt.json
+          proctor-report.json
+          proctor-report.txt
+          integrity.svg
+        if-no-files-found: warn
+    - name: Comment on pull request
+      if: always() && inputs.comment == 'true' && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      env:
+        PROCTOR_REPORT_PATH: proctor-report.txt
+      with:
+        script: |
+          const fs = require('fs');
+          const report = fs.existsSync(process.env.PROCTOR_REPORT_PATH)
+            ? fs.readFileSync(process.env.PROCTOR_REPORT_PATH, 'utf8')
+            : 'Proctor did not produce a readable report.';
+          const body = `## Proctor integrity report\n\n<details><summary>Evidence-backed gate result</summary>\n\n\`\`\`text\n${report.slice(0, 60000)}\n\`\`\`\n</details>\n\n[Read the Proctor taxonomy](https://github.com/GenRamzi/Proctor/blob/main/docs/taxonomy.md)`;
+          await github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            body
+          });
+    - name: Enforce gate
+      if: always() && steps.gate.outputs.exit_code != '0'
+      shell: bash
+      run: exit 1
