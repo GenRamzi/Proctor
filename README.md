@@ -588,7 +588,7 @@ proctor run --claims-file ./agent-report.md -- <agent-command>
 
 ### A test result is missing
 
-Ensure the output contains a supported summary format. Proctor currently recognizes pytest, Jest/Vitest, Go test, JUnit XML, and TAP patterns. Save the raw output and inspect the transcript in the receipt when adding a new framework.
+Ensure the output contains a supported summary format. Proctor currently recognizes pytest, Node.js built-in test output, Jest/Vitest, Go test, JUnit XML, and TAP patterns. Save the raw output and inspect the transcript in the receipt when adding a new framework.
 
 ### `gate` fails with a valid-looking code change
 
@@ -643,6 +643,7 @@ Run the quality checks:
 npm run lint
 npm run typecheck
 npm test
+npm run test:coverage
 npm run build
 ```
 
@@ -669,6 +670,16 @@ node dist/cli.js --version
 | `action.yml` | Reusable GitHub Action |
 
 ### Adding a detector
+
+### Coverage
+
+Generate a local HTML and LCOV coverage report with:
+
+```console
+npm run test:coverage
+```
+
+The current suite covers the CLI’s core domain modules with line coverage reported by `c8`; generated `coverage/` output is ignored by Git. Coverage is a signal for untested behavior, not proof that every production scenario is safe.
 
 A detector should be deterministic, conservative, and independently testable. When adding a rule:
 

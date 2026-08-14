@@ -20,6 +20,8 @@ export function sha256(value: string | Buffer): string {
 
 export function redactSecrets(value: string): string {
   return SECRET_PATTERNS.reduce((result, pattern) => result.replace(pattern, (match) => {
+    if (/^(?:ghp_|sk-)/.test(match)) return "[REDACTED TOKEN]";
+    if (/^-----BEGIN /.test(match)) return "[REDACTED PRIVATE KEY]";
     const separator = match.includes("=") ? "=" : ": ";
     const key = match.split(/[=:]/, 1)[0] ?? "secret";
     return `${key}${separator}[REDACTED]`;
