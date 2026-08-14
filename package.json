@@ -1,7 +1,18 @@
 {
-  "name": "proctor",
+  "name": "@genramzi/proctor",
   "version": "0.1.0",
   "description": "Audit what coding agents said against what they actually did.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GenRamzi/Proctor.git"
+  },
+  "homepage": "https://github.com/GenRamzi/Proctor#readme",
+  "bugs": {
+    "url": "https://github.com/GenRamzi/Proctor/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "type": "module",
   "bin": {
     "proctor": "dist/cli.js"
